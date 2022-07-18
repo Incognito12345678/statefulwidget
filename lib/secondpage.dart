@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:statelesswidget/thirdpage.dart';
 
 
 class SecondPage extends StatefulWidget {
@@ -25,10 +26,13 @@ class _SecondPageState extends State<SecondPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //volver a la pantalla anterior
-          Navigator.pop(context);
+           Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Third()),
+          );
+          
         },
-        child: const Icon(Icons.navigate_before),
+        child: const Icon(Icons.navigate_next),
       ),
     );
   }
