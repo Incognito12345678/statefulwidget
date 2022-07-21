@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:statelesswidget/fourthscreen.dart';
+import 'package:statelesswidget/models/datos.dart';
 
 class Third extends StatefulWidget {
   Third({Key? key}) : super(key: key);
@@ -9,8 +11,8 @@ class Third extends StatefulWidget {
 
 class _ThirdState extends State<Third> {
   Color color = Colors.blue;
-  
-  void Cambiarcolor() {
+
+  void cambiarcolor() {
     setState(() {
       if (color == Colors.blue) {
         color = Colors.green;
@@ -39,7 +41,22 @@ class _ThirdState extends State<Third> {
               height: 20,
             ),
             ElevatedButton(
-                onPressed: Cambiarcolor, child: const Text('Cambiar color')),
+                onPressed: cambiarcolor, child: const Text('Cambiar color')),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Fourth(
+                                recibirdatos: Datos(
+                                  color: color,
+                                ),
+                              )));
+                },
+                child: const Text('Next')),
           ],
         ),
       ),
